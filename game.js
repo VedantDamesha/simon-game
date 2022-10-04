@@ -57,7 +57,7 @@ $(document).keydown(function () {
  
 $(".btn").click(function() {
 
-    clickId = this.id;
+    let clickId = this.id;
 
     if(started) {
         clickAnime(clickId);
@@ -82,26 +82,27 @@ $(".btn").click(function() {
         } else {
             j++;
         }
+
+        if(inputSequence.length === sequence.length && inputSequence != []) {
+        
+
+            randomName();
+            setTimeout(function() {
+                fade(sequence[level - 1]);
+            }, 1000);
+    
+            level++;
+            inputSequence = [];
+            j = 0;
+            
+            $("h1").text("Level " + level);
+            
+    
+        }
+
     }
 
 
-
-    if(inputSequence.length === sequence.length && inputSequence != []) {
-        
-
-        randomName();
-        setTimeout(function() {
-            fade(sequence[level - 1]);
-        }, 1000);
-
-        level++;
-        inputSequence = [];
-        j = 0;
-        
-        $("h1").text("Level " + level);
-        
-
-    }
 
 
    
